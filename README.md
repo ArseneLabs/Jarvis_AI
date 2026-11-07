@@ -1,7 +1,6 @@
 # 🤖 Jarvis_AI — Autonomous Voice Assistant & Task Automation Engine
 
 **Jarvis_AI** is a modular, Python-powered personal assistant designed to streamline daily workflows through voice commands, system automation, and intelligent task execution. Built with extensibility in mind, it interfaces speech-to-text algorithms, conversational logic, and local system utilities to provide a fast, hands-free personal productivity hub.
-
 Created and engineered by **Arsene Labs** and **Software Engineer Arsene**.
 
 ### ⚡ Key Capabilities
