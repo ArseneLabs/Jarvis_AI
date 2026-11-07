@@ -9,15 +9,14 @@ from __future__ import annotations
 # readable capital J (the bottom-left \___/ hook), unlike the cramped prior
 # art where the J read as an I.
 _WORDMARK = (
-    "  ___                       _                  _     ",
-    " / _ \\ _ __   ___ _ __     | | __ _ _ ____   _(_)___ ",
-    "| | | | '_ \\ / _ \\ '_ \\ _  | |/ _` | '__\\ \\ / / / __|",
-    "| |_| | |_) |  __/ | | | |_| | (_| | |   \\ V /| \\__ \\",
-    " \\___/| .__/ \\___|_| |_|\\___/ \\__,_|_|    \\_/ |_|___/",
-    "      |_|                                            ",
+    "     _   _    ______     _____ ____  ",
+    "    | | / \\  |  _ \\ \\   / /_ _/ ___| ",
+    " _  | |/ _ \\ | |_) \\ \\ / / | |\\___ \\ ",
+    "| |_| / ___ \\|  _ < \\ V /  | | ___) |",
+    " \\___/_/   \\_\\_| \\_\\ \\_/  |___|____/ ",
 )
 
-_TAGLINE = "Personal AI, On Personal Devices"
+_TAGLINE = "Created by Arsene Labs & Software Engineer Arsene"
 
 
 def print_banner(quiet: bool = False) -> None:

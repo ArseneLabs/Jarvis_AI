@@ -116,7 +116,7 @@ function loadSettings(): Settings {
     apiUrl: '',
     apiKey: '',
     fontSize: 'default',
-    defaultModel: '',
+    defaultModel: 'openrouter/auto',
     defaultAgent: '',
     temperature: 0.7,
     maxTokens: 4096,
@@ -126,8 +126,9 @@ function loadSettings(): Settings {
   };
   try {
     const raw = localStorage.getItem(SETTINGS_KEY);
-    if (!raw) return defaults;
-    return { ...defaults, ...JSON.parse(raw) };
+    const loaded = raw ? { ...defaults, ...JSON.parse(raw) } : defaults;
+    if (!loaded.defaultModel) loaded.defaultModel = 'openrouter/auto';
+    return loaded;
   } catch {
     return defaults;
   }

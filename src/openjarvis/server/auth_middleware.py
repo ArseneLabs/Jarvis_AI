@@ -49,6 +49,15 @@ class AuthMiddleware(BaseHTTPMiddleware):
         if self._api_key and self._requires_auth(request.url.path):
             auth = request.headers.get("Authorization", "")
             if not auth:
+                client_host = request.client.host if request.client else ""
+                try:
+                    import ipaddress
+                    ip = ipaddress.ip_address(client_host)
+                    if ip.is_loopback or ip.is_private:
+                        return await call_next(request)
+                except (ValueError, TypeError):
+                    if client_host in ("localhost", "127.0.0.1", ""):
+                        return await call_next(request)
                 return JSONResponse(
                     {"detail": "Missing Authorization header"},
                     status_code=401,

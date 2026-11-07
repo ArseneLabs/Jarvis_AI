@@ -1125,7 +1125,11 @@ async def list_models(request: Request) -> ModelListResponse:
         if not is_cloud_model(m) or _engine_key_for_model(engine, m) == "litellm"
     ]
     if not model_ids:
+        model_ids = [m for m in all_ids]
+    if not model_ids:
         model_ids = await list_local_models()
+    if not model_ids and getattr(request.app.state, "model", None):
+        model_ids = [request.app.state.model]
 
     # Keep embed-only models out of the chat model picker. They still work for
     # memory/retrieval via the embedder path; putting them in /v1/models made
